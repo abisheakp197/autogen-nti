@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autogen-nti"
+version = "0.1.0"
+description = "Full 5-pillar NTI post-quantum security for AutoGen and Microsoft Agent Framework."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "PolyForm-Shield-1.0.0" }
+authors = [{ name = "Abisheak", email = "abisheakp197@gmail.com" }]
+keywords = [
+    "autogen",
+    "microsoft-agent-framework",
+    "ai-agents",
+    "post-quantum-cryptography",
+    "pqc",
+    "dilithium5",
+    "kyber1024",
+    "zero-trust",
+    "bft-consensus",
+    "merkle-audit",
+    "agent-mesh",
+    "ai-security",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: Other/Proprietary License",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "autogen-agentchat>=0.2.0",
+    "ube-foundation>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://abisheakp197.github.io/Neutral-Trust-Infrastructure/"
+Repository = "https://github.com/abisheakp197/autogen-nti"
+Issues = "https://github.com/abisheakp197/autogen-nti/issues"
+
+[tool.setuptools.packages.find]
+include = ["autogen_nti*"]
