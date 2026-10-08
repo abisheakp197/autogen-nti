@@ -1,5 +1,7 @@
 # autogen-nti
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
+
 Drop-in post-quantum security for AutoGen and Microsoft Agent Framework, powered by NTI (Neutral Trust Infrastructure).
 
 ## Install
@@ -29,7 +31,7 @@ is_allowed = wrapper.verify_message(
 
 ## License
 
-PolyForm Shield License 1.0.0. Source-available.
+Apache License 2.0. See LICENSE.
 
 ## Links
 
