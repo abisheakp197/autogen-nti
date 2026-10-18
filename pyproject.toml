@@ -37,7 +37,7 @@ classifiers = [
 
 dependencies = [
     "autogen-agentchat>=0.2.0",
-    "ube-foundation>=0.1.0",
+    "ube-foundation>=0.1.7",
 ]
 
 [project.urls]
