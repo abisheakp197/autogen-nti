@@ -37,3 +37,40 @@ Apache License 2.0. See LICENSE.
 
 - Core SDK: https://pypi.org/project/ube-foundation/
 - Homepage: https://abisheakp197.github.io/Neutral-Trust-Infrastructure/
+
+## Architecture
+
+```mermaid
+graph TD
+    subgraph AutoGen["AutoGen Framework"]
+        Sender["Sender Agent (ConversableAgent)"]
+        MsgLoop["GroupChat / Message Loop"]
+        Receiver["Receiver Agent (ConversableAgent)"]
+    end
+
+    subgraph NTILayer["NTI Security Layer"]
+        Interceptor["Message Interceptor (NTIAgentWrapper)"]
+        Wrapper["NTISecurityWrapper"]
+        PolicyCheck["Signature & Capability Evaluation"]
+        FailClosed["Fail-Closed Logic & Security Logger"]
+    end
+
+    subgraph CryptoEngine["Crypto Engine"]
+        PQCKey["PqcKeyPair (Dilithium5 / Kyber1024)"]
+        TrustEng["TrustEngine (Capability Policy Engine)"]
+    end
+
+    %% Flow
+    Sender -->|"1. Sign message payload"| PQCKey
+    Sender -->|"2. Send message into loop"| MsgLoop
+    MsgLoop -->|"3. Intercept on_messages()"| Interceptor
+    Interceptor -->|"4. Pass message to verification"| Wrapper
+
+    Wrapper -->|"5. Verify Dilithium5 signature"| PQCKey
+    Wrapper -->|"6. Evaluate capability request"| TrustEng
+    TrustEng --> PolicyCheck
+
+    PolicyCheck -->|"7a. Valid & Authorized"| Receiver
+    PolicyCheck -->|"7b. Unsigned / Spoofed / Unauthorized"| FailClosed
+    FailClosed -->|"Block Message & Log Security Event"| MsgLoop
+```
