@@ -4,5 +4,5 @@ autogen-nti: Drop-in NTI (Neutral Trust Infrastructure) security for AutoGen / M
 
 from autogen_nti.security import NTISecurityWrapper
 
-__version__ = "0.1.0"
+__version__ = "0.1.2"
 __all__ = ["NTISecurityWrapper"]
